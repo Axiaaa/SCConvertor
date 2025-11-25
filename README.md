@@ -2,7 +2,7 @@
 
 #### [Important notes about use](#for-hexa)
 
-#### You can access it at : https://sc-convertor.vercel.app/
+#### You can access it at : https://sc-converter.vercel.app/
 
 <img width="775" height="504" alt="image" src="https://github.com/user-attachments/assets/06299c11-d109-4fa5-a725-c59b17ef90a0" />
 
