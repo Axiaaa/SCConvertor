@@ -4,6 +4,7 @@ import './index.css';
 import { ByteStream } from './bytestream';
 import { AboutPage } from './about'
 import { StructureToHexPage } from './structuretohex'
+import { Hexdiff } from "./hexdiff";
 
 const ConverterPage: React.FC<{ onNavigate: (page: string) => void }> = ({ onNavigate }) => {
   const [hexValue, setHexValue] = useState('');
@@ -145,9 +146,15 @@ const ConverterPage: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
             </button>
             <button
               onClick={() => onNavigate('structuretohex')}
-              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-red-400 to-purple-400 mb-3 hover:shadow-lg hover:shadow-green-500/30"
+              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-red-400 to-purple-400 mb-3 hover:shadow-lg hover:shadow-gray-500/30"
             >
               Structure dumper
+            </button>
+            <button
+              onClick={() => onNavigate('hexdiff')}
+              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-red-400 to-purple-400 mb-3 hover:shadow-lg hover:shadow-gray-500/30"
+            >
+              Diff Checker
             </button>
             <button
               onClick={() => onNavigate('about')}
@@ -248,10 +255,10 @@ const ConverterPage: React.FC<{ onNavigate: (page: string) => void }> = ({ onNav
 
 
 const App: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState<'converter' | 'about'| 'structuretohex'>('converter');
+  const [currentPage, setCurrentPage] = useState<'converter' | 'about'| 'structuretohex' | 'hexdiff'>('converter');
 
   const handleNavigate = (page: string) => {
-    if (page === 'converter' || page === 'about' || page === 'structuretohex' ) {
+    if (page === 'converter' || page === 'about' || page === 'structuretohex' || page === 'hexdiff') {
       setCurrentPage(page);
     }
   };
@@ -260,6 +267,7 @@ const App: React.FC = () => {
     <>
       {currentPage === 'converter' && <ConverterPage onNavigate={handleNavigate} />}
       {currentPage === 'about' && <AboutPage onNavigate={handleNavigate} />}
+      {currentPage === 'hexdiff' && <Hexdiff onNavigate={handleNavigate} />}
       {currentPage === 'structuretohex' &&  <StructureToHexPage onNavigate={handleNavigate} />}
     </>
   );

@@ -108,8 +108,14 @@ export const StructureToHexPage: React.FC<{ onNavigate: (page: string) => void }
               Converter
             </button>
             <button
+              onClick={() => onNavigate('hexdiff')}
+              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-red-400 to-purple-400 mb-3 hover:shadow-lg hover:shadow-gray-500/30"
+            >
+              Diff Checker
+          </button>
+            <button
               onClick={() => onNavigate('about')}
-              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-green-400 to-teal-500 mb-3 hover:shadow-lg hover:shadow-green-500/30"
+              className="px-15 py-2.5 rounded-lg text-sm font-bold transition-all bg-slate-700 text-gray-300 hover:bg-linear-to-br from-green-400 to-teal-500 mb-3 hover:shadow-lg hover:shadow-gray-500/30"
             >
               About
             </button>
